@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  newItem: {
+    content: null,
+    done: false,
+  },
   classNames: ['listr'],
   classNameBindings: ['listDetailHidden'],
   listDetailHidden: false,
@@ -14,6 +18,12 @@ export default Ember.Component.extend({
     },
     deleteItem (item) {
       this.sendAction('deleteItem', item);
-    }
+    },
+    createItem () {
+      console.log("This is newItem", this.get('newItem'));
+      let data = this.get('newItem');
+      data.list = this.get('list');
+      this.sendAction('createItem', data);
+    },
   },
 });

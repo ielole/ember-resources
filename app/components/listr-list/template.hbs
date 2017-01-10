@@ -5,4 +5,9 @@
                       toggleDone='toggleItemDone'
                       delete='deleteItem'}}
   {{/each}}
+<form {{action 'createItem' on='submit'}}>
+  {{input placeholder='New Item'
+          value=newItem.content}}
+  <button class="btn btn-xs btn-info" type="submit">CREATE ITEM</button>
+</form>
 </ol>
